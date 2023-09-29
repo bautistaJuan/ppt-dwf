@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+
+.home-page-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-title {
+    margin: 0 auto;
+}
+
+.title span {
+    color: #91CCAF;
+}
+
+.title {
+    color: #009048;
+    font-family: 'Bree Serif', serif;
+    font-size: 70px;
+    font-style: normal;
+    line-height: 70px;
+}
+
+.container-btn {
+    margin-top: 75px;
+    border: solid;
+}
+
+
+
+.piedra,
+.papel,
+.tijera {
+    margin-right: 40px;
+    margin: 50px 20px 0;
+}
