@@ -33,11 +33,11 @@ customElements.define(
       this.shadow.innerHTML = `
          <button class="button" type="button">Empezar</button>
         `;
-      const btn = this.shadow.querySelector("button");
-      btn?.addEventListener("click", e => {
-        e.preventDefault();
-        console.log("Hello BTN");
-      });
+      // const btn = this.shadow.querySelector("button");
+      // btn?.addEventListener("click", e => {
+      //   e.preventDefault();
+      //   console.log("Hello BTN");
+      // });
     }
   }
 );

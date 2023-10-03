@@ -1,5 +1,10 @@
 import { initHome } from "./pages/home";
+import { instructions } from "./pages/introduction";
 const routes = [
+  {
+    path: /\/instructions/,
+    component: instructions,
+  },
   {
     path: /\/welcome/,
     component: initHome,
@@ -29,7 +34,7 @@ export function initRouter(container: Element) {
         if (container.firstChild) {
           container.firstChild.remove();
         }
-        container.appendChild(elemento);
+        return container.appendChild(elemento);
       }
     }
   }
@@ -39,6 +44,7 @@ export function initRouter(container: Element) {
   } else {
     handleRoute(location.pathname);
   }
+  console.log(window);
 
   window.onpopstate = () => {
     handleRoute(location.pathname);

@@ -1,19 +1,19 @@
-export function initHome(container: Element) {
+export function initHome(params) {
   const div = document.createElement("div");
   div.className = "home-page-container";
   div.innerHTML = `
   <div class="container-title">
-  <h1 class="title">Piedra <br>
-  Papel <span>ó</span><br>
-  Tijera</h1>
-      </div>
+    <h1 class="title">Piedra <br>
+    Papel <span>ó</span><br>
+    Tijera</h1>
+  </div>
       <div class="container-btn">
-        <my-button></my-button>
+        <my-button class="button"></my-button>
       </div>
       <div class="container-hands">
-      <img class="piedra" src="" alt="Piedra">
-      <img class="papel" src="../../img/papel.png" alt="Pepel">
-      <img class="tijera" src="" alt="Tijera">
+      <img class="piedra"  alt="Piedra">
+      <img class="papel" alt="Pepel">
+      <img class="tijera" alt="Tijera">
       </div>
       `;
   const imgUrl = div.querySelectorAll("img");
@@ -27,5 +27,12 @@ export function initHome(container: Element) {
     }
   });
 
-  container.appendChild(div);
+  const btn = div.querySelector(".button");
+  btn?.addEventListener("click", e => {
+    e.preventDefault();
+    const goTo = params;
+    return goTo.goTo("/instructions");
+  });
+
+  return div;
 }
