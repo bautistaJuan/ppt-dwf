@@ -5,7 +5,7 @@ export function game() {
   // <my-timer></my-timer>
   const div = document.createElement("div");
   div.innerHTML = `
-  <my-hands class="hands"></my-hands>
+   <my-hands class="hands"></my-hands>
   `;
   return div;
 }
