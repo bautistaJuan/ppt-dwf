@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
 
 .home-page-container {
+    overflow: hidden;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -9,6 +10,7 @@
 
 .container-title {
     margin: 0 auto;
+    margin-top: 20px;
 }
 
 .title span {
@@ -16,24 +18,22 @@
 }
 
 .title {
+    margin: 0;
     color: #009048;
     font-family: 'Bree Serif', serif;
-    font-size: 70px;
+    font-size: 80px;
     font-style: normal;
     line-height: 70px;
 }
 
-.container-btn {
-    margin-top: 75px;
-    border: solid;
-    text-align: center;
+.container-hands {
+    display: flex;
+    flex: 1;
+    margin: 0 auto;
+    align-items: flex-end;
 }
 
-
-
-.piedra,
-.papel,
-.tijera {
-    margin-right: 40px;
-    margin: 50px 20px 0;
+.container-btn {
+    margin-top: 120px;
+    text-align: center;
 }

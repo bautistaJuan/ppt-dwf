@@ -8,6 +8,7 @@ body {
 }
 
 .root {
-    padding: 20px;
+    padding: 20px 20px 0;
     background-image: url("./img/fondo.png");
+    height: 100vh;
 }

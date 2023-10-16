@@ -31,13 +31,8 @@ customElements.define(
     }
     render() {
       this.shadow.innerHTML = `
-         <button class="button" type="button">Empezar</button>
+         <button class="button" type="button">${this.textContent}</button>
         `;
-      // const btn = this.shadow.querySelector("button");
-      // btn?.addEventListener("click", e => {
-      //   e.preventDefault();
-      //   console.log("Hello BTN");
-      // });
     }
   }
 );

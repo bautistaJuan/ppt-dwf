@@ -1,52 +1,55 @@
+import { game } from "./pages/game";
 import { initHome } from "./pages/home";
 import { instructions } from "./pages/introduction";
+const BASE_PATH = "/dwf-m5-desafio-final";
+
+function isGithubPages() {
+  return location.host.includes("bautistajuan.github.io");
+}
+
 const routes = [
-  {
-    path: /\/instructions/,
-    component: instructions,
-  },
   {
     path: /\/welcome/,
     component: initHome,
   },
+  {
+    path: /\/introductions/,
+    component: instructions,
+  },
+  {
+    path: /\/game/,
+    component: game,
+  },
 ];
-
-const BASE_PATH = "/dwf-m5-desafio-final";
-
-function isGitHubPages() {
-  return location.host.includes("github.io");
-}
 
 export function initRouter(container: Element) {
   function goTo(path) {
-    const completePath = isGitHubPages() ? BASE_PATH + path : path;
-    history.pushState({}, "", path);
+    const completePath = isGithubPages() ? BASE_PATH + path : path;
+    history.pushState({}, "", completePath);
     handleRoute(completePath);
   }
-
   function handleRoute(route) {
-    const newRoute = isGitHubPages() ? route.replace(BASE_PATH, "") : route;
+    console.log("el handle Route recibio una nueva ruta y es", route);
 
+    const newRoute = isGithubPages() ? route.replace(BASE_PATH, "") : route;
     for (const r of routes) {
       if (r.path.test(newRoute)) {
-        const elemento: any = r.component({ goTo: goTo });
-
-        if (container.firstChild) {
-          container.firstChild.remove();
-        }
-        return container.appendChild(elemento);
+        const el = r.component({ goTo: goTo });
+        container.firstChild?.remove();
+        container.appendChild(el);
       }
     }
   }
-
-  if (location.pathname == "/" || location.host.includes("github.io")) {
+  if (
+    location.pathname == "/" ||
+    location.pathname == "/dwf-m5-desafio-final/"
+  ) {
     goTo("/welcome");
   } else {
     handleRoute(location.pathname);
   }
-  console.log(window);
 
-  window.onpopstate = () => {
+  window.onpopstate = function () {
     handleRoute(location.pathname);
   };
 }
