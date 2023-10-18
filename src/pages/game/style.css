@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container-game {
+    text-align: center;
+    margin-bottom: 10px;
+}

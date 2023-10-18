@@ -1,6 +1,7 @@
 import { game } from "./pages/game";
 import { initHome } from "./pages/home";
 import { instructions } from "./pages/introduction";
+import { result } from "./pages/viewResult/result";
 const BASE_PATH = "/dwf-m5-desafio-final";
 
 function isGithubPages() {
@@ -19,6 +20,10 @@ const routes = [
   {
     path: /\/game/,
     component: game,
+  },
+  {
+    path: /\/result/,
+    component: result,
   },
 ];
 

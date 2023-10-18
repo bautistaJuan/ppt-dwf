@@ -17,6 +17,10 @@ customElements.define(
       .tijera {
         height: 150px; 
         margin-right: 5px;
+      }
+      .click{
+        height: 200px;
+      }
       `;
       this.shadow.appendChild(styleHands);
     }
@@ -30,8 +34,6 @@ customElements.define(
 
       `;
       const imgUrl = handsContainer.querySelectorAll("img");
-      const randomNum = Math.floor(Math.random() * (2 - 0 + 1) + 0);
-      const imgSelect = imgUrl[randomNum].id;
       imgUrl.forEach(img => {
         if (img.className == "papel") {
           img.src = new URL("../../img/papel.png", import.meta.url).toString();
@@ -40,15 +42,13 @@ customElements.define(
         } else if (img.className == "tijera") {
           img.src = new URL("../../img/tijera.png", import.meta.url).toString();
         }
-
         img.addEventListener("click", (i: any) => {
           const event = new CustomEvent("handSelected", {
             detail: {
               selectionPlayer: i.target.id,
-              selectionComputer: imgSelect,
+              addClass: i.target.classList,
             },
           });
-
           this.dispatchEvent(event);
         });
       });

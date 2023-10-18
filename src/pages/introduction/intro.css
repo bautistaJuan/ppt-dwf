@@ -6,7 +6,7 @@
     height: 100vh;
 }
 
-.container {
+.container-instrution {
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -16,11 +16,11 @@
 
 .play-btn {
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .hands {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .sub-instruction {

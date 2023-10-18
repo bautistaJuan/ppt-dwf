@@ -1,4 +1,4 @@
-export type Move = "piedra" | "papel" | "tijera";
+export type Move = "Piedra" | "Papel" | "Tijera";
 type Game = {
   myPlay: Move;
   computerPlay: Move;
@@ -17,6 +17,15 @@ const state = {
     },
   },
   listeners: [],
+
+  getState() {
+    return this.data;
+  },
+
+  setState(newState) {
+    this.data = newState || this.data;
+    localStorage.setItem("saved-state", JSON.stringify(newState));
+  },
   setMoves(myMove: Move, computerMove: Move) {
     const lastState = this.getState();
     state.setState({
@@ -38,49 +47,55 @@ const state = {
       },
     });
   },
-
-  whoWins(myPlay: Move, computerPlay: Move) {
+  resultOfTheGame(myPlay: Move, computerPlay: Move) {
     let iWin: Boolean = false;
     let computerWin: Boolean = false;
     let equal: Boolean = false;
     if (
-      (myPlay == "piedra" && computerPlay == "tijera") ||
-      (myPlay == "papel" && computerPlay == "piedra") ||
-      (myPlay == "tijera" && computerPlay == "papel")
+      (myPlay == "Piedra" && computerPlay == "Tijera") ||
+      (myPlay == "Papel" && computerPlay == "Piedra") ||
+      (myPlay == "Tijera" && computerPlay == "Papel")
     ) {
       iWin == true;
-      // this.pushToHistory(1, 0);
-      this.setResult("Ganaste");
+      state.pushToHistory(1, 0);
+      state.setResult("Ganaste");
     } else if (
-      (computerPlay == "piedra" && myPlay == "tijera") ||
-      (computerPlay == "papel" && myPlay == "piedra") ||
-      (computerPlay == "tijera" && myPlay == "papel")
+      (computerPlay == "Piedra" && myPlay == "Tijera") ||
+      (computerPlay == "Papel" && myPlay == "Piedra") ||
+      (computerPlay == "Tijera" && myPlay == "Papel")
     ) {
       computerWin == true;
-      this.pushToHistory(0, 1);
-      this.setResult("Perdiste");
+      state.pushToHistory(0, 1);
+      state.setResult("Perdiste");
     } else if (myPlay == computerPlay) {
       equal == true;
-      // this.pushToHistory(0, 0);
-      this.setResult("Empate");
+      state.pushToHistory(0, 0);
+      state.setResult("Empate");
     }
   },
-
-  getState() {
-    return this.data;
+  getHistory() {
+    const localData = localStorage.getItem("saved-state") as any;
+    this.setState(JSON.parse(localData));
   },
-
-  setState(newState) {
-    this.data = newState || this.data;
-    for (const cb of this.listeners) {
-      cb();
-    }
-    console.log("soy el state, he cambiado", newState);
-    localStorage.setItem("saved-state", JSON.stringify(newState));
+  pushToHistory(myPoint: number, computerPoint: number) {
+    const currentState = this.getState();
+    state.setState({
+      ...currentState,
+      history: {
+        ...currentState.history,
+        myHistoryPlay: currentState.history.myHistoryPlay + myPoint,
+        computerHistoryPlay:
+          currentState.history.computerHistoryPlay + computerPoint,
+      },
+    });
   },
-
-  subscribe(callback: (any) => any) {
-    this.listeners.push(callback);
+  restartPoints() {
+    state.setState({
+      history: {
+        myHistoryPlay: 0,
+        computerHistoryPlay: 0,
+      },
+    });
   },
 };
 
