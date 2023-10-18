@@ -1,5 +1,6 @@
 import { state, Move } from "../../state";
 export function game(params) {
+  let timeEnd: boolean = true;
   const div = document.createElement("div");
   div.className = "container";
   div.innerHTML = `
@@ -18,14 +19,21 @@ export function game(params) {
     let movimientoComputadora;
     movimientoComputadora = OPCIONES[Math.floor(Math.random() * 3)];
     hands?.addEventListener("handSelected", (e: any) => {
-      // efecto en mano seleccionado
-      e.detail.addClass.add("click");
+      // Efecto en mano seleccionado, junto
+      e.detail.addClass.add("click", "nextPage");
       state.setMoves(e.detail.selectionPlayer, movimientoComputadora);
       state.resultOfTheGame(e.detail.selectionPlayer, movimientoComputadora);
+
+      // Pasemos a ver los resultados...
+      if (e.detail.addClass[2] == "nextPage") {
+        setTimeout(() => {
+          timeEnd = false;
+          params.goTo("/result");
+        }, 1000);
+      }
     });
   })();
   (function timeOff() {
-    let timeEnd: boolean = true;
     let counter = 3;
     const intervalId = setInterval(() => {
       counter--;
@@ -36,8 +44,6 @@ export function game(params) {
       }
     }, 1000);
   })();
-
-  // SetMoveAndWinner();
 
   return div;
 }

@@ -1,4 +1,6 @@
 export function result(params) {
+  console.log("Result");
+
   const div = document.createElement("div");
   div.className = "result-page-container";
   div.innerHTML = `
