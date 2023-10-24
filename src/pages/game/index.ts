@@ -26,8 +26,8 @@ export function game(params) {
 
       // Pasemos a ver los resultados...
       if (e.detail.addClass[2] == "nextPage") {
+        timeEnd = false;
         setTimeout(() => {
-          timeEnd = false;
           params.goTo("/result");
         }, 1000);
       }
@@ -38,7 +38,6 @@ export function game(params) {
     const intervalId = setInterval(() => {
       counter--;
       if (counter < 1 && timeEnd == true) {
-        console.log("El evento no ha sido activado");
         clearInterval(intervalId);
         params.goTo("/introductions");
       }

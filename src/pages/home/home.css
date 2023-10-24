@@ -28,12 +28,24 @@
 
 .container-hands {
     display: flex;
-    flex: 1;
     margin: 0 auto;
     align-items: flex-end;
+    margin-top: 60px;
+}
+
+@media (min-width:400px) {
+    .container-hands {
+        margin-top: 30px;
+    }
 }
 
 .container-btn {
     margin-top: 120px;
     text-align: center;
+}
+
+@media (min-width:400px) {
+    .container-btn {
+        margin-top: 100px;
+    }
 }

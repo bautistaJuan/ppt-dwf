@@ -75,7 +75,9 @@ const state = {
   },
   getHistory() {
     const localData = localStorage.getItem("saved-state") as any;
-    this.setState(JSON.parse(localData));
+    const dataParse = JSON.parse(localData);
+    this.setState(dataParse);
+    return dataParse;
   },
   pushToHistory(myPoint: number, computerPoint: number) {
     const currentState = this.getState();
