@@ -1,0 +1,18 @@
+.container-game-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.computer {
+    width: 110px;
+    height: 246px;
+    transform: rotate(180deg);
+
+}
+
+.player {
+    width: 110px;
+}

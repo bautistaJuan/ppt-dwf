@@ -1,5 +1,3 @@
-import { state } from "../../state";
-
 customElements.define(
   "my-hands",
   class Hands extends HTMLElement {
@@ -34,6 +32,7 @@ customElements.define(
 
       `;
       const imgUrl = handsContainer.querySelectorAll("img");
+
       imgUrl.forEach(img => {
         if (img.className == "papel") {
           img.src = new URL("../../img/papel.png", import.meta.url).toString();

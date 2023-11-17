@@ -1,8 +1,4 @@
-export type Move = "Piedra" | "Papel" | "Tijera";
-type Game = {
-  myPlay: Move;
-  computerPlay: Move;
-};
+type Move = "Piedra" | "Papel" | "Tijera";
 
 const state = {
   data: {
@@ -101,4 +97,4 @@ const state = {
   },
 };
 
-export { state };
+export { state, Move };

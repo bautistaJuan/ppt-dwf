@@ -1,4 +1,5 @@
-import { state, Move } from "../../state";
+import { state } from "../../state";
+import { movements } from "../seeMovements/movs";
 export function game(params) {
   let timeEnd: boolean = true;
   const div = document.createElement("div");
@@ -19,20 +20,21 @@ export function game(params) {
     let movimientoComputadora;
     movimientoComputadora = OPCIONES[Math.floor(Math.random() * 3)];
     hands?.addEventListener("handSelected", (e: any) => {
-      // Efecto en mano seleccionado, junto
+      // Efecto en mano seleccionado
       e.detail.addClass.add("click", "nextPage");
       state.setMoves(e.detail.selectionPlayer, movimientoComputadora);
       state.resultOfTheGame(e.detail.selectionPlayer, movimientoComputadora);
 
       // Pasemos a ver los resultados...
       if (e.detail.addClass[2] == "nextPage") {
-        timeEnd = false;
+        timeEnd = !timeEnd;
         setTimeout(() => {
-          params.goTo("/result");
+          params.goTo("/movements");
         }, 1000);
       }
     });
   })();
+  //Si no elegiste ninguna de las opciones
   (function timeOff() {
     let counter = 3;
     const intervalId = setInterval(() => {

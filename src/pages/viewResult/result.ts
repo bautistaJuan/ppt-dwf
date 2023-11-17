@@ -26,6 +26,7 @@ export function result(params) {
     </div>
   
   `;
+  // bodyForResult se utiliza aca solamente para agregar color de fondo dependiendo de la clase que se le agruege
   const image: HTMLImageElement = div.querySelector(".img-result")!;
   const bodyForResult: HTMLBodyElement = document.querySelector("body")!;
   if (resultGame.currentGame.result == "Ganaste") {

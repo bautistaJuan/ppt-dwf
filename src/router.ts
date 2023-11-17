@@ -1,6 +1,7 @@
 import { game } from "./pages/game";
 import { initHome } from "./pages/home";
 import { instructions } from "./pages/introduction";
+import { movements } from "./pages/seeMovements/movs";
 import { result } from "./pages/viewResult/result";
 
 const BASE_PATH = "/dwf-m5-desafio-final";
@@ -25,6 +26,10 @@ const routes = [
   {
     path: /\/result/,
     component: result,
+  },
+  {
+    path: /\/movements/,
+    component: movements,
   },
 ];
 
@@ -55,7 +60,7 @@ export function initRouter(container: Element) {
     handleRoute(location.pathname);
   }
 
-  window.onpopstate = function () {
+  window.onpopstate = () => {
     handleRoute(location.pathname);
   };
 }
