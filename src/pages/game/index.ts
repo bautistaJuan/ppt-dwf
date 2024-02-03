@@ -3,22 +3,21 @@ import { movements } from "../seeMovements/movs";
 export function game(params) {
   let timeEnd: boolean = true;
   const div = document.createElement("div");
-  div.className = "container";
+  div.className = "container-game";
   div.innerHTML = `
-    
-    <div class="container-timer">
-      <my-timer></my-timer>
-    </div>
-    <div class="container-game">
-    <my-hands class="hands"></my-hands>
-    </div>
+      <div class="container-timer">
+        <my-timer></my-timer>
+      </div>
+      <div class="container-hands">
+        <my-hands class="hands"></my-hands>
+      </div>
   `;
   const hands = div.querySelector(".hands");
 
   (function SetMoveAndWinner() {
     const OPCIONES = ["Piedra", "Papel", "Tijera"];
     let movimientoComputadora;
-    movimientoComputadora = OPCIONES[Math.floor(Math.random() * 3)];
+    movimientoComputadora = OPCIONES[Math.floor(Math.random() * 100)];
     hands?.addEventListener("handSelected", (e: any) => {
       // Efecto en mano seleccionado
       e.detail.addClass.add("click", "nextPage");

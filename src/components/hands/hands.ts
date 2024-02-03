@@ -13,11 +13,20 @@ customElements.define(
       .piedra,
       .papel,
       .tijera {
-        height: 150px; 
-        margin-right: 5px;
+        height: 200px; 
+        margin-right: 10px;
       }
       .click{
-        height: 200px;
+        position: absolute;
+        top: -238px;
+        right: 0px;
+        left: 120px;
+        bottom: 0;
+        height: 300px;
+        box-shadow: 0px 8px 103px red;
+        border-radius: 11px;
+        background-color: #F44336;
+        padding: 10px;
       }
       `;
       this.shadow.appendChild(styleHands);

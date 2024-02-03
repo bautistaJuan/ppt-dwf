@@ -10,10 +10,6 @@ export function initHome(params) {
     <div class="container-btn">
       <my-button class="change-page">Empezar</my-button>
     </div>
-    <div class="container-hands">
-      <my-hands></my-hands>
-    </div>
-
   `;
   const btn = div.querySelector(".change-page");
   btn?.addEventListener("click", e => {

@@ -4,32 +4,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
 }
 
 .play-btn {
-    margin-top: 50px;
     margin-bottom: 30px;
 }
 
-.hands {
-    margin-top: 10px;
-}
-
 .sub-instruction {
-    color: #000;
+    color: #ffff;
     text-align: center;
     font-family: 'Bree Serif', serif;
     font-size: 40px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 400;
     line-height: 45px;
-
+    letter-spacing: 3px;
 }
 
 @media (min-width:400px) {
     .sub-instruction {
         width: 400px;
     }
+}
+
+.play {
+    color: red;
+    font-weight: 400;
 }

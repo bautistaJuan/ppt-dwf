@@ -9,5 +9,6 @@ body {
 
 .root {
     padding: 10px 10px 0;
-    background-image: url("./img/fondo.png");
+    background-color: rgb(7, 58, 140);
+    height: 100vh;
 }

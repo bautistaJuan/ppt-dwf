@@ -16,15 +16,14 @@ customElements.define(
           font-family: 'Odibee Sans';
           font-size: 45px;
           font-style: normal;
-          font-weight: 400;
+          font-weight: 600;
           line-height: normal;
-          letter-spacing: 2.25px;
+          letter-spacing: 3px;
           width: 322px;
           height: 87px;
-          flex-shrink: 0;
           border-radius: 10px;
-          border: 10px solid #001997;
-          background: #006CFC;
+          border: 1px solid;
+          background: #0c00ff;;
         }
       `;
       this.shadow.appendChild(style);

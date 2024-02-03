@@ -4,7 +4,8 @@
   "description": "Piedra, Papel o Tijera",
   "scripts": {
     "dev": " parcel src/index.html",
-    "build": "parcel build ./src/index.html --dist-dir build --public-url /dwf-m5-desafio-final",
+    "buildGh": "parcel build ./src/index.html --dist-dir build --public-url /dwf-m5-desafio-final",
+    "build": "parcel build ./src/index.html",
     "deploy": "gh-pages -d build",
     "build-and-deploy": "npm run build && npm run deploy"
   },
