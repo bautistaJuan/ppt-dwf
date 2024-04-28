@@ -17,16 +17,15 @@ customElements.define(
         margin-right: 10px;
       }
       .click{
-        position: absolute;
-        top: -238px;
-        right: 0px;
-        left: 120px;
-        bottom: 0;
         height: 300px;
-        box-shadow: 0px 8px 103px red;
-        border-radius: 11px;
-        background-color: #F44336;
         padding: 10px;
+        position: absolute;
+        top: 50%;
+        right: 40%;
+      }
+      .hands-container{
+        display: flex;
+        justify-content: space-between;
       }
       `;
       this.shadow.appendChild(styleHands);
@@ -43,6 +42,7 @@ customElements.define(
       const imgUrl = handsContainer.querySelectorAll("img");
 
       imgUrl.forEach(img => {
+        // Agregando imagen y de paso los eventos para cada mano
         if (img.className == "papel") {
           img.src = new URL("../../img/papel.png", import.meta.url).toString();
         } else if (img.className == "piedra") {
@@ -50,7 +50,11 @@ customElements.define(
         } else if (img.className == "tijera") {
           img.src = new URL("../../img/tijera.png", import.meta.url).toString();
         }
+
+        // Escuchamos un evento para disparar uno nuevo
         img.addEventListener("click", (i: any) => {
+          console.log("Esto aprete: ", i.target.id);
+
           const event = new CustomEvent("handSelected", {
             detail: {
               selectionPlayer: i.target.id,

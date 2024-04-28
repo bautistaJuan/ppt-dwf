@@ -6,12 +6,14 @@ export function movements(params) {
   const computerGame = currentState.currentGame.computerPlay;
   const player = currentState.currentGame.myPlay;
 
+  console.log("Desde game le dijimos al state que fue:", player);
+
   const div = document.createElement("div");
   div.className = "container";
   div.innerHTML = `
     <div class="container-game-img">
-        <img class="computer" src>
-        <img class="player" src>
+        <img class="computer" >
+        <img class="player" >
         <my-hands class="hands"></my-hands>
     </div>
   `;
@@ -26,13 +28,13 @@ export function movements(params) {
 
   //   Muestro jugada
   hand.forEach(img => {
-    if (img.id == computerGame) {
+    if (img.id === computerGame) {
       computerImg.setAttribute("src", img.src);
       containerHands.lastChild?.remove();
-    } else if (img.id == player) {
+    } else if (img.id === player) {
       myPlayerImg.setAttribute("src", img.src);
       containerHands.lastChild?.remove();
-    } else if (player == computerGame) {
+    } else if (player === computerGame) {
       myPlayerImg.setAttribute("src", img.src);
       computerImg.setAttribute("src", img.src);
       containerHands.lastChild?.remove();

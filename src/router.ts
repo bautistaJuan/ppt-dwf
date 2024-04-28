@@ -35,26 +35,21 @@ const routes = [
 
 export function initRouter(container: Element) {
   function goTo(path) {
-    const completePath = isGithubPages() ? BASE_PATH + path : path;
-    history.pushState({}, "", completePath);
-    handleRoute(completePath);
+    history.pushState({}, "", path);
+    handleRoute(path);
   }
   function handleRoute(route) {
-    console.log("el handle Route recibio una nueva ruta y es", route);
+    // console.log("el handle Route recibio una nueva ruta y es", route);
 
-    const newRoute = isGithubPages() ? route.replace(BASE_PATH, "") : route;
     for (const r of routes) {
-      if (r.path.test(newRoute)) {
+      if (r.path.test(route)) {
         const el = r.component({ goTo: goTo });
         container.firstChild?.remove();
         container.appendChild(el);
       }
     }
   }
-  if (
-    location.pathname == "/" ||
-    location.pathname == "/dwf-m5-desafio-final/"
-  ) {
+  if (location.pathname == "/") {
     goTo("/welcome");
   } else {
     handleRoute(location.pathname);

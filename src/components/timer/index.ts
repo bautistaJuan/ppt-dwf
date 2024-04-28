@@ -41,7 +41,7 @@ customElements.define(
           font-weight: 400;
           font-size: 70px;
           text-align: center;
-          color: black;
+          color: white;
         }
         .svg {
           width: 260px;
@@ -53,7 +53,7 @@ customElements.define(
           stroke-dashoffset: 0px;
           stroke-linecap: round;
           stroke-width: 10px;
-          stroke: black ;
+          stroke: white ;
           fill: none;
           animation: countdown 3s linear infinite forwards;
         }

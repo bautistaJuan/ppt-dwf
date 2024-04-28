@@ -6,26 +6,26 @@
 
 
 .container-game {
-    position: relative;
     height: 100%;
-    border: solid 5px rgb(206, 196, 196);
+    min-height: 100vh;
+    justify-content: end;
 }
 
-.container-timer {
+.game-timer {
     position: absolute;
-    top: 50px;
+    top: 150px;
     right: 50px;
     left: 50px;
-    border: solid 9px yellow;
 }
 
 
-.container-hands {
-    position: absolute;
-    top: 80%;
-    right: 0px;
-    left: 0px;
-    bottom: 0;
-    border: solid 9px rgb(252, 47, 255);
+.game-hands {
     text-align: center;
+    inset: 80px 0 0;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.bye {
+    display: none;
 }
