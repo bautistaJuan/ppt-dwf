@@ -1,36 +1,44 @@
-import { game } from "./pages/game";
-import { initHome } from "./pages/home";
-import { instructions } from "./pages/introduction";
-import { movements } from "./pages/seeMovements/movs";
-import { result } from "./pages/viewResult/result";
+import { initWelcomePage } from "./pages/welcome";
+import { initIndexPage } from "./pages/instructions";
+import { initGamePage } from "./pages/game";
+import { initWinPage } from "./pages/win";
+import { initDefeatPage } from "./pages/defeat";
+import { initTimeoutPage } from "./pages/timeout";
+import { initDrawPage } from "./pages/draw";
 
-const BASE_PATH = "/dwf-m5-desafio-final";
-
-function isGithubPages() {
-  return location.host.includes("bautistajuan.github.io");
-}
-
-const routes = [
+const rutas = [
   {
     path: /\/welcome/,
-    component: initHome,
+    component: initWelcomePage,
   },
   {
-    path: /\/introductions/,
-    component: instructions,
+    path: /\/desafio-m5/,
+    component: initWelcomePage,
+  },
+  {
+    path: /\/index/,
+    component: initIndexPage,
   },
   {
     path: /\/game/,
-    component: game,
+    component: initGamePage,
   },
   {
-    path: /\/result/,
-    component: result,
+    path: /\/timeout/,
+    component: initTimeoutPage,
   },
   {
-    path: /\/movements/,
-    component: movements,
+    path: /\/victoria/,
+    component: initWinPage,
   },
+  {
+    path: /\/derrota/,
+    component: initDefeatPage,
+  },
+  {
+    path: /\/empate/,
+    component: initDrawPage,
+  }
 ];
 
 export function initRouter(container: Element) {
@@ -38,22 +46,30 @@ export function initRouter(container: Element) {
     history.pushState({}, "", path);
     handleRoute(path);
   }
-  function handleRoute(route) {
-    // console.log("el handle Route recibio una nueva ruta y es", route);
 
-    for (const r of routes) {
+  function handleRoute(route) {
+    container.innerHTML = "";
+
+    for (const r of rutas) {
       if (r.path.test(route)) {
         const el = r.component({ goTo: goTo });
-        container.firstChild?.remove();
         container.appendChild(el);
       }
     }
   }
+
   if (location.pathname == "/") {
     goTo("/welcome");
   } else {
     handleRoute(location.pathname);
   }
+
+  if (location.host.includes("github.io")) {
+    goTo("/desafio-m5");
+  }
+
+  //ESTO LO BORRE AL PRINCIPIO PERO PUEDE QUEDAR LUEGO
+  /* handleRoute(location.pathname) */
 
   window.onpopstate = () => {
     handleRoute(location.pathname);

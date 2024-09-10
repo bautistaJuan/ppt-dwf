@@ -1,6 +1,13 @@
 import { initRouter } from "./router";
-import "./components/timer/index";
-import "./components/hands/hands";
-import "./components/button/my-button";
-const root = document.querySelector(".root")!;
-initRouter(root);
+import { state } from "./state";
+import "./components/titles";
+import "./components/buttons";
+import "./components/ring";
+import "./components/hands";
+
+(function () {
+  state.restoreState();
+  console.log("hola");
+  const rootEl = document.querySelector(".root")!;
+  initRouter(rootEl);
+})();
