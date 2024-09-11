@@ -12,7 +12,7 @@ const rutas = [
     component: initWelcomePage,
   },
   {
-    path: /\/desafio-m5/,
+    path: /\/ppt-dwf/,
     component: initWelcomePage,
   },
   {
@@ -38,7 +38,7 @@ const rutas = [
   {
     path: /\/empate/,
     component: initDrawPage,
-  }
+  },
 ];
 
 export function initRouter(container: Element) {
@@ -65,7 +65,7 @@ export function initRouter(container: Element) {
   }
 
   if (location.host.includes("github.io")) {
-    goTo("/desafio-m5");
+    goTo("/ppt-dwf");
   }
 
   //ESTO LO BORRE AL PRINCIPIO PERO PUEDE QUEDAR LUEGO

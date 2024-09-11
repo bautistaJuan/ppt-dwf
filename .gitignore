@@ -2,4 +2,4 @@ build
 .parcel-cache
 dist
 node_modules
-.cache
+.package-lock.json

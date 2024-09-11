@@ -1,19 +1,18 @@
 {
-  "name": "ppt",
+  "name": "ppt-dwf",
   "version": "1.0.0",
-  "description": "Piedra, Papel o Tijera",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": " parcel src/index.html",
-    "buildGh": "parcel build ./src/index.html --dist-dir build --public-url /dwf-m5-desafio-final",
-    "build": "parcel build ./src/index.html",
-    "deploy": "gh-pages -d build",
-    "build-and-deploy": "npm run build && npm run deploy"
+    "dev": "parcel src/index.html"
   },
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bautistaJuan/ppt-dwf.git"
+  },
   "devDependencies": {
-    "gh-pages": "^6.0.0",
-    "parcel": "^2.10.0",
-    "typescript": "^5.2.2",
-    "@parcel/transformer-image": "2.0.0-rc.0"
+    "@parcel/transformer-image": "^2.12.0",
+    "gh-pages": "^6.1.1",
+    "parcel": "^2.12.0"
   }
 }

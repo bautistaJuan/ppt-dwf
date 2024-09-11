@@ -1,6 +1,6 @@
-// import piedraImg from "url:../../assets/piedra.svg";
-// import papelImg from "url:../../assets/papel.svg";
-import tijerasImg from "../../assets/tijeras.svg";
+import piedraImg from "url:../../assets/piedra.svg";
+import papelImg from "url:../../assets/papel.svg";
+import tijerasImg from "url:../../assets/tijera.svg";
 
 export function initWelcomePage(params) {
   const div = document.createElement("main");
